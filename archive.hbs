@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <title>{{siteTitle}}</title>
+  <meta name="description" content="{{siteDesc}}">
+  <meta name="keywords" content="{{siteTags}}">
+  <meta name="viewport" content="initial-scale=1.0;user-scale=no">
+  <meta name="robots" content="index,follow">
+  {{#if siteIcon}}
+    <link rel="shortcut icon" type="image/png" href="./img/fav.png">
+  {{/if}}
+  <link rel="stylesheet" href="//cdn.staticfile.org/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/screen.css">
+</head>
+<body>
+{{> header}}
+<div id="archive" class="container">
+  <h2>Gallery</h2>
+  {{#each articles}}
+  <div class="media">
+    <a class="media-left" href="{{url}}">
+      <img src="{{thumbnail}}" class="media-object" alt="{{title}}">
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading">{{title}}</h4>
+      <p>{{description}}</p>
+      <p class="text-muted"><small>
+        Create at: <time datetime="{{toDate createTime}}">{{toDate createTime}}</time> |
+        Modified at: <time datetime="{{toDate lastModifiedTime}}">{{toDate lastModifiedTime}}</time>
+      </small></p>
+    </div>
+  </div>
+  {{/each}}
+  {{> pagination}}
+</div>
+{{> footer}}
+</body>
+</html>
