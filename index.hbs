@@ -18,9 +18,9 @@
   <div id="gallery" class="container">
     <div id="home-gallery" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
-        {{#each articles-top}}
+        {{#top 5 articles}}
         <li data-target="#home-gallery" data-slide="{{@key}}" class="active"></li>
-        {{/each}}
+        {{/top}}
       </ol>
       <div class="carousel-inner" role="listbox">
         {{#each articles-top}}
