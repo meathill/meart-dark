@@ -5,7 +5,7 @@
   <title>{{siteTitle}}</title>
   <meta name="description" content="{{siteDesc}}">
   <meta name="keywords" content="{{siteTags}}">
-  <meta name="viewport" content="initial-scale=1.0;user-scale=no">
+  <meta name="viewport" content="initial-scale=1.0,user-scale=no">
   <meta name="robots" content="index,follow">
   {{#if siteIcon}}
     <link rel="shortcut icon" type="image/png" href="./img/fav.png">
@@ -16,20 +16,20 @@
 <body>
   {{> header}}
   <div id="gallery" class="container">
-    <div id="home-gallery" class="carousel slide" data-ride="carousel">
+    <div id="home-gallery" class="carousel slide row" data-ride="carousel">
       <ol class="carousel-indicators">
-        {{#top 5 articles}}
+        {{#top articles 5}}
         <li data-target="#home-gallery" data-slide="{{@key}}" class="active"></li>
         {{/top}}
       </ol>
       <div class="carousel-inner" role="listbox">
-        {{#each articles-top}}
-        <div class="carousel-item active" style="background-image: {{thumbnail}}">
+        {{#top articles 5}}
+        <div class="carousel-item active" style="background-image: url({{thumbnail}})">
           <h2>{{title}}</h2>
           <p class="lead">{{description}}</p>
           <a href="{{url}}.html">View Gallery</a>
         </div>
-        {{/each}}
+        {{/top}}
       </div>
       <a class="left carousel-control" href="#home-gallery" role="button" data-slide="prev">
         <span class="fa fa-chevron-left" aria-hidden="true"></span>

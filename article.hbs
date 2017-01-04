@@ -2,10 +2,10 @@
 <html lang="zh-cmn-Hans">
 <head>
   <meta charset="UTF-8">
-  <title>{{siteTitle}}</title>
-  <meta name="description" content="{{siteDesc}}">
-  <meta name="keywords" content="{{siteTags}}">
-  <meta name="viewport" content="initial-scale=1.0;user-scale=no">
+  <title>{{title}} | {{siteTitle}}</title>
+  <meta name="description" content="{{ifnull description siteDesc}}">
+  <meta name="keywords" content="{{ifnull tags siteTags}}">
+  <meta name="viewport" content="initial-scale=1.0,user-scale=no">
   <meta name="robots" content="index,follow">
   {{#if siteIcon}}
     <link rel="shortcut icon" type="image/png" href="./img/fav.png">
@@ -15,10 +15,12 @@
 </head>
 <body>
 {{> header}}
-<div id="photo-list" class="container">
-  <h1>{{title}}</h1>
-  <p class="lead">{{description}}</p>
-  <ul>
+<article id="photo-list" class="container">
+  <header>
+    <h1>{{title}}</h1>
+    <p class="lead">{{description}}</p>
+  </header>
+  <ul class="album" id="container">
     {{#each album}}
     <li>
       <a href="{{src}}" data-description="{{description}}">
@@ -28,12 +30,20 @@
     {{/each}}
   </ul>
   <footer>
-    <small>
+    <small class="text-muted">
       Create at: <time datetime="{{toDate createTime}}">{{toDate createTime}}</time> |
       Modified at: <time datetime="{{toDate lastModifiedTime}}">{{toDate lastModifiedTime}}</time>
     </small>
   </footer>
-</div>
+</article>
 {{> footer}}
+<script src="//cdn.staticfile.org/jquery/3.1.1/jquery.min.js"></script>
+<script src="//cdn.staticfile.org/freewall/1.0.5/freewall.min.js"></script>
+<script>
+  $(function () {
+    var wall = new Freewall('#container');
+    wall.fitWidth();
+  })
+</script>
 </body>
 </html>
