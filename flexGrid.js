@@ -52,10 +52,11 @@ module.exports = (photos, options) => {
     }, 0);
     rowPhotos.forEach( photo => {
       photo.size = {
-        width: viewportWidth / summedRatios * photo.aspectRatio,
-        height: viewportWidth / summedRatios
+        flex: photo.aspectRatio * 100 >> 0,
+        height: viewportWidth / summedRatios >> 0
       };
     });
+    rowPhotos[row.length - 1].isLast = true;
     index += row.length;
   });
 

@@ -22,11 +22,14 @@
   </header>
   <ul class="album" id="container">
     {{#flexGrid album}}
-    <li>
-      <a href="{{src}}" data-description="{{description}}" style="background-image: url({{src}});width:{{size.width}}px;height:{{size.height}}px" title="{{alt}}">
+    <li style="flex:{{size.flex}};height:{{size.height}}px">
+      <a href="{{src}}" data-description="{{description}}" style="background-image: url({{src}});" title="{{title}}">
         <img src="{{src}}" alt="{{title}}" data-origin-width="{{width}}" data-origin-height="{{height}}">
       </a>
     </li>
+    {{#if isLast}}
+    <li class="blank-line"></li>
+    {{/if}}
     {{/flexGrid}}
   </ul>
   <footer>
@@ -37,13 +40,5 @@
   </footer>
 </article>
 {{> footer}}
-<script src="//cdn.staticfile.org/jquery/3.1.1/jquery.min.js"></script>
-<script src="//cdn.staticfile.org/freewall/1.0.5/freewall.min.js"></script>
-<script>
-  $(function () {
-    var wall = new Freewall('#container');
-    wall.fitWidth();
-  })
-</script>
 </body>
 </html>

@@ -10,12 +10,32 @@
 
   .album
     padding-left 0
+    margin-left -.5rem
+    display flex
+    flex-direction row
+    flex-wrap wrap
 
     li
       display block
       list-style none
+      background-color #222
       background-position center center
       background-size cover
+      margin-left .5rem
+      min-width 20px
+
+      &.blank-line
+        margin-left 0
+        width 100%
+        height .5rem
+        line-height .5rem
+        background none
+        visibility hidden
+
+      a
+        display block
+        width 100%
+        height 100%
 
       img
         display none
