@@ -21,13 +21,13 @@
     <p class="lead">{{description}}</p>
   </header>
   <ul class="album" id="container">
-    {{#each album}}
+    {{#flexGrid album}}
     <li>
-      <a href="{{src}}" data-description="{{description}}">
-        <img src="{{src}}" alt="{{title}}" width="{{width}}" height="{{height}}">
+      <a href="{{src}}" data-description="{{description}}" style="background-image: url({{src}});width:{{size.width}}px;height:{{size.height}}px" title="{{alt}}">
+        <img src="{{src}}" alt="{{title}}" data-origin-width="{{width}}" data-origin-height="{{height}}">
       </a>
     </li>
-    {{/each}}
+    {{/flexGrid}}
   </ul>
   <footer>
     <small class="text-muted">

@@ -5,5 +5,8 @@
   "tags": [
     "dark",
     "gallery"
-  ]
+  ],
+  "handlebars": {
+    "flexGrid": "flexGrid.js"
+  }
 }
