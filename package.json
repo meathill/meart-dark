@@ -2,11 +2,9 @@
   "name": "Dark",
   "version": "0.0.1",
   "description": "A Meart dark theme.",
+  "thumbnail": "img/thumbnail.svg",
   "tags": [
     "dark",
     "gallery"
-  ],
-  "handlebars": {
-    "flexGrid": "flexGrid.js"
-  }
+  ]
 }
