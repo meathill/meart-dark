@@ -5,10 +5,10 @@
   <title>{{siteTitle}}</title>
   <meta name="description" content="{{siteDesc}}">
   <meta name="keywords" content="{{siteTags}}">
-  <meta name="viewport" content="initial-scale=1.0,user-scale=no">
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
   <meta name="robots" content="index,follow">
   {{#if siteIcon}}
-    <link rel="shortcut icon" type="image/png" href="./img/fav.png">
+    <link rel="shortcut icon" type="image/png" href="{{siteIcon}}">
   {{/if}}
   <link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/screen.css">
@@ -16,31 +16,26 @@
 <body>
   {{> header}}
   <div id="gallery" class="container">
-    <div id="home-gallery" class="carousel slide row" data-ride="carousel">
+    <div id="home-gallery" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         {{#top articles 5}}
-        <li data-target="#home-gallery" data-slide="{{@key}}" class="active"></li>
+        <li data-target="#home-gallery" data-slide-to="{{@index}}" {{#if @first}}class="active"{{/if}}></li>
         {{/top}}
       </ol>
       <div class="carousel-inner" role="listbox">
         {{#top articles 5}}
-        <div class="carousel-item active" style="background-image: url({{thumbnail}})">
+        <div class="carousel-item {{#if @first}}active{{/if}}" style="background-image: url({{thumbnail}})">
           <h2>{{title}}</h2>
           <p class="lead">{{description}}</p>
-          <a href="{{url}}.html">View Gallery</a>
+          <a href="{{url}}.html" class="view">View Gallery</a>
         </div>
         {{/top}}
       </div>
-      <a class="left carousel-control" href="#home-gallery" role="button" data-slide="prev">
-        <span class="fa fa-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#home-gallery" role="button" data-slide="next">
-        <span class="fa fa-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
   </div>
   {{> footer}}
+<script src="https://cdn.staticfile.org/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/tether/1.4.0/js/tether.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 </body>
 </html>

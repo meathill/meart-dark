@@ -5,12 +5,12 @@
   <title>{{siteTitle}}</title>
   <meta name="description" content="{{siteDesc}}">
   <meta name="keywords" content="{{siteTags}}">
-  <meta name="viewport" content="initial-scale=1.0,user-scale=no">
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
   <meta name="robots" content="index,follow">
   {{#if siteIcon}}
-    <link rel="shortcut icon" type="image/png" href="./img/fav.png">
+    <link rel="shortcut icon" type="image/png" href="{{siteIcon}}">
   {{/if}}
-  <link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="http://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/screen.css">
 </head>
@@ -23,7 +23,7 @@
   {{#each articles}}
   <div class="media">
     <a class="media-left" href="{{url}}.html">
-      <img src="{{thumbnail}}" class="media-object" alt="{{title}}">
+      <img src="{{thumbnail}}" class="media-object img-thumbnail" alt="{{title}}">
     </a>
     <div class="media-body">
       <h4 class="media-heading"><a href="{{url}}.html">{{title}}</a></h4>

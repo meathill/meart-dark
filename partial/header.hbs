@@ -1,13 +1,18 @@
 <header id="header" class="container">
-  <nav class="navbar navbar-dark row">
+  <nav class="navbar navbar-toggleable-md navbar-dark row">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="开关导航"></button>
+
     <a class="navbar-brand" href="./">
       {{#if logo}}<img src="{{logo}}" height="30" class="d-inline-block align-top" alt="{{siteTitle}}">{{/if}}
       {{siteTitle}}
     </a>
-    <ul class="nav navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="archive.html">全部</a>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbar-menu">
+      <ul class="navbar-nav mr-auto"></ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="archive.html">全部</a>
+        </li>
+      </ul>
+    </div>
   </nav>
 </header>
