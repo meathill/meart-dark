@@ -27,7 +27,7 @@
         <div class="carousel-item {{#if @first}}active{{/if}}" style="background-image: url({{thumbnail}})">
           <h2>{{title}}</h2>
           <p class="lead">{{description}}</p>
-          <a href="{{url}}.html" class="view">View Gallery</a>
+          <a href="{{#if url}}{{url}}{{else}}{{id}}{{/if}}.html" class="view">View Gallery</a>
         </div>
         {{/top}}
       </div>
